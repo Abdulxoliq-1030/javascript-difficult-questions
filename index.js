@@ -60,3 +60,23 @@ Array.prototype.plustTo = function (n) {
 console.log(arr.plustTo(2));
 
 // THIS,BIND,CALL,APPLY ------------------------
+
+// PROTOTYPE -----------------------------------
+// Javascript da hamma narsa object hisoblanadi javascriptning asosi objectdur.
+const user = {
+  name: "John",
+  email: "john@gmail.com",
+  age: 25,
+  hello: function () {
+    console.log("Hello");
+  },
+};
+
+Object.prototype.myAge = function () {
+  console.log("My age 25");
+};
+
+const john = Object.create(user); // Bu joyda johnning prototypida userning protosi bor john agar o'zidan hello funksiyasini topa olmasa u userdan oladi agar toString() funksiyasini bersak johnga agar u o'zida yo'q bo'lsa userga boradi agar userda ham yo'q bo'lsa Object prototypega boradi bu global object
+// Propertylarni izlayotganda yuqoridan boshlab izlaydi agar yo'q bo'lsa keyin ichiga kiradi.
+const str = new String("Bu string"); // buning o'zini prototype bor lekin uning ham ichida Object prototype bor
+// PROTOTYPE -----------------------------------
