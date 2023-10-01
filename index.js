@@ -80,3 +80,19 @@ const john = Object.create(user); // Bu joyda johnning prototypida userning prot
 // Propertylarni izlayotganda yuqoridan boshlab izlaydi agar yo'q bo'lsa keyin ichiga kiradi.
 const str = new String("Bu string"); // buning o'zini prototype bor lekin uning ham ichida Object prototype bor
 // PROTOTYPE -----------------------------------
+
+// SPREAD --------------------------------------
+// Spread operatori copy qiladi va bir biriga qo'shishda ishlatiladi
+const oldArray = [1, 2, 3];
+const newArray = [...oldArray, 4, 5];
+console.log(newArray); // [1, 2, 3, 4, 5]
+// SPREAD --------------------------------------
+
+// REST ----------------------------------------
+// Rest operator esa massivning qolgan elementlarini olishda ishlatiladi. U funksiya parametrlarida ko'p argumetlarni qo'llashda qulaylik yaratadi. Misol:
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4, 5)); // 15
+// REST ----------------------------------------
