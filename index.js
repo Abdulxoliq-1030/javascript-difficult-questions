@@ -108,3 +108,16 @@ function foo() {
   return inner;
 }
 // Clousure ------------------------------------
+
+// PROMISE, PROMISE ALL, PROMISE RACE ----------
+// "Promise" JavaScript dasturlash tilida amaliyotda juda mashhur. Bu obyektlar asinxron vaqtda amal qilayotgan operatsiyalarni boshqarish uchun ishlatiladi. Misol uchun, fayl yuklash, server bilan bog'lanish, API so'rovlarini jo'natish kabi amallar asinxron ravishda bajariladi. Promise orqali, ma'lum bir amalni bajarish va natijasini kutish, shuningdek xato holatlarni boshqarish mumkin.
+
+// Promise, Promise.race va Promise.all:
+
+// Promise: Bu bir necha holatda bo'lishi mumkin bo'lgan va'zlarni qo'llaydigan obyekt. Misol uchun, bitta faylni yuklash uchun promise.
+// Promise.race: Bir necha promise'larning ichidan birinchi amal bajarilgan bo'lsa, hammasi uchun natija olish uchun ishlatiladi.
+// Promise.all: Barcha promise'larning barchasi muvaffaqiyatli amalga oshirilgan bo'lsa, ularning barchasi natijalari birlashtiriladi va umumiy promise natijasini beradi. Agar birida ham xato bo'lsa, Promise.all hamma promise'larning barchasini bekor qiladi.
+// Bunday promise lar, ma'lum bir vaqt davomida bajariladigan amallarni tuzishda, xususan asinxron operatsiyalarda juda foydali bo'ladi.
+
+// Umumiy ravishda, "Promise.race" va "Promise.all" orqali farq, biri bir necha promise'larni boshqarish uchun, ikkinchi esa ularning natijalarini birlashtirish uchun ishlatiladi.
+// PROMISE, PROMISE ALL, PROMISE RACE ----------
