@@ -96,3 +96,15 @@ function sum(...numbers) {
 
 console.log(sum(1, 2, 3, 4, 5)); // 15
 // REST ----------------------------------------
+
+// Clousure ------------------------------------
+// Ichki funksiyalarga tashqi funksiyalarga kirishni imkonini beradi bu oddiy atama clousure avtomatik ravishda yaratiladi funksiya yaratilishi bilan
+
+function foo() {
+  let b = 1;
+  function inner() {
+    return b;
+  }
+  return inner;
+}
+// Clousure ------------------------------------
