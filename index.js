@@ -13,7 +13,7 @@
 // Hoisting ozgina funksiyalarda ozgina kodlarda ta'sir qilmaydi dasturimizga lekin agar kodimiz logikamiz ko'p bo'lib ketadigan bo'lsa bu holatda ancha dasturimiz sekinlashadi shuning uchun biron bir funksiyani ichida o'zgaruvchi ishlatayotgan bo'lsak uni shu funksiyani ichida e'lon qilsak hoistingdan qutilamiz
 // HOISTING --------------------
 
-// THIS ------------------------
+// THIS,BIND,CALL,APPLY ------------------------
 // This boshida window objectini ko'rsatadi uni oddiy chaqirsak yani konteksga bo'lgan yo'nalishni ko'rsatadi.
 function myName() {
   console.log("My name: ", this); // window objectini ko'rsatadi
@@ -24,9 +24,11 @@ const car = {
   year: 2022,
   sayName: myName, // bu holatda car ga murojat qiladi this qaysidur objectni ichida bo'lsa shu objectga murojaat qiladi agar global joyda turmagan bo'lsa
   sayNameWindow: myName.bind(window), // bu holatda endi windowga murojaat qiladi bind bu bizga yo'nalishni o'zgartirib berish uchun ishlatiladi unga qaysi objectni bersak shunga yo'nalish qilib beradi
-  info: function () {
+  info: function (model, color) {
     console.log(`Car name is: ${this.name}`);
     console.log(`Year: ${this.year}`);
+    console.log(`Model ${model}`);
+    console.log(`Color ${color}`);
   },
 };
 
@@ -35,6 +37,26 @@ const gentra = {
   year: 2020,
 };
 
-car.info.bind(gentra)(); // bu joyda endi car ning info funksiyasi bizga endi gentra uchun ishlaydi chunki biz info funksiyasini gentraga bind qilib qo'ydik 
+// car.info.bind(gentra, "Chevrolet","White")(); // bu joyda endi car ning info funksiyasi bizga endi gentra uchun ishlaydi chunki biz info funksiyasini gentraga bind qilib qo'ydik bunga argumentlarni , bilan berib ketsak bo'ladi
 
-// THIS ------------------------
+// car.info.call(gentra, "Chevrolet","White"); // call ham bind bilan bir xil lekin call ning bind dan farqi funksiyani darxol chaqirib yuboradi bu ham car ning info funksiyasini gentraga o'tkazib yo'naltirib berdi bunga argumentlarni , bilan berib ketsak bo'ladi
+
+// car.info.apply(gentra, ["Chevrolet", "White"]); // bu ham callkabi  ishlaydi lekin bunga argumentlarni [] ko'rinishida berishimiz kerak bu ham darhol chaqirib yuboriladi.
+
+let arr = [1, 2, 3, 4, 5];
+
+/*
+function plusTo(arr, num) {
+  return arr.map((el) => el + num);
+}
+*/
+
+Array.prototype.plustTo = function (n) {
+  return this.map((el) => el + n);
+};
+
+// console.log(plusTo(arr, 2));
+
+console.log(arr.plustTo(2));
+
+// THIS,BIND,CALL,APPLY ------------------------
