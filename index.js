@@ -121,3 +121,32 @@ function foo() {
 
 // Umumiy ravishda, "Promise.race" va "Promise.all" orqali farq, biri bir necha promise'larni boshqarish uchun, ikkinchi esa ularning natijalarini birlashtirish uchun ishlatiladi.
 // PROMISE, PROMISE ALL, PROMISE RACE ----------
+
+// DEEP COPY AND SHALLOW COPY ------------------
+
+// Shallow Copy:
+// Shallow copy, faqat boshqa obyektning o'zidan qandaydir ko'plab qismini olishga yordam beradi.
+// Obyektning ichidagi tengsiz (primitive) qiymatlar (masalan, sonlar yoki matnlar) ikki obyekt orasida nusxalanadi.
+// Ammo, agar obyekt ichida boshqa obyekt yoki massivlar bo'lsa, bular faqat o'z ichidagi manzillarni o'z ichiga olishadi, bu esa o'zgarishlarni asosiy obyektni ham o'z ichiga olib kelmaydi.
+// Shallow copy ko'plab qismi obyekt ichidagi o'zgarishlarni asosiy obyektni o'zgartirmaydi, lekin o'z ichidagi boshqa obyektlarni o'zgartiradi.
+// Shallow Copy misoli
+let originalArray = [1, 2, [3, 4]];
+let shallowCopy = [...originalArray];
+
+shallowCopy[2][0] = 999; // originalArray[2][0] ham o'zgaraadi
+console.log(originalArray); // [1, 2, [999, 4]]
+console.log(shallowCopy); // [1, 2, [999, 4]]
+
+// Deep Copy:
+
+// Deep copy esa, obyektni ham o'zidan qandaydir ko'plab qismini olishga yordam beradi, ammo shuningdek ichida bo'lgan boshqa obyekt yoki massivlarning ham yangi nusxasini yaratadi.
+// Bu, o'zgarishlarni asosiy obyektga taalluq bilan turli obyektlarni ifodalaydi.
+// Agar asosiy obyekt ichida boshqa obyekt yoki massiv bo'lsa, deep copy, ularni ham o'z ichiga nusxalaydi, bu esa ularning o'zgarishlarini ham o'z ichiga olib keltiradi.
+
+// Deep Copy misoli
+let deepCopy = JSON.parse(JSON.stringify(originalArray));
+
+deepCopy[2][0] = 777; // originalArray[2][0] o'zgarmaydi
+console.log(originalArray); // [1, 2, [999, 4]]
+console.log(deepCopy); // [1, 2, [777, 4]]
+// DEEP COPY AND SHALLOW COPY ------------------
